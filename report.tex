@@ -1,0 +1,167 @@
+\documentclass[a4paper, 12pt]{article}
+
+% Добавляем новые пакеты
+\usepackage[english, russian]{babel}    % Пакет для поддержки русского языка
+\usepackage[T1, T2A]{fontenc}           % Загружаем пакет с поддержкой кирилицы
+\usepackage[utf8]{inputenc}             % Загружаем пакет с поддержкой кодировки файла и символов
+\usepackage{graphicx}                   % Загружаем пакет для добавления различной графики (pdf, jpg, png)
+\usepackage{import}                     % Загружаем пакет для продвинутого импорта, в частности изображений pdf_tex из графического редактора inkscape (\import{<path to file>}{<filename>.pdf_tex})
+\usepackage{subcaption}                 % Пакет для поддержки сетки из фигур, например в две колонки или матрицей
+\usepackage{float}                      % Пакет для улучшенного размещения изображенией (ниже используется опция H в команде \begin{figure}[H])
+\usepackage{geometry}                   % Пакет для управления отступами на странице (см. далее вызываем \geometry)
+\usepackage{amsmath}                    % Добавляем крутую поддержку математики, в частности /align
+\usepackage{amsfonts}                   % Пкет с мтематическими шрифтами вроде \mathbb и др.
+\usepackage{tabu}                       % Пакет с прокаченными таблицами
+\usepackage{booktabs}                   % Крутые вертикальные разделители
+\usepackage[dvipsnames]{xcolor}         % Рассширенная поддержка цветов
+\usepackage[colorlinks]{hyperref}
+\usepackage{indentfirst}                % Пакет, чтобы починить красную строку
+\usepackage{listings}                   % Поддержка листингов, оформления кода программы
+\usepackage{vpdtitle}               % Титульный лист (смотри файл vpdtitle.sty)
+
+
+% Устанавливает отступы на странице
+\geometry{left=2cm, right=2cm, bottom=2cm, top=2cm}
+
+% Настараиваем красивые цвета для ссылок на формулы, фигуры (изображения) и другие элементы.
+\hypersetup{
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan
+}
+
+% Настраиваем супер красивые листинги с попомщью пакетов listings и xcolor
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{codestyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\lstset{style=codestyle}
+\lstset{extendedchars=\true}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Заполнение титульного листа
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{
+Отчёт о лабораторной работе по Git и GitHub
+}
+
+% Тут укажите автора
+\author{Фам Ба Дат}
+% Тут Номер группы, инфомация для связи (телеграм или почта)
+\affil{407879, @BaDatPham}
+
+% Впишите данные о том, кто будет проверять работу
+\supervisor{Василий А. Николаевич}
+
+% Краткое описание того, что сделали в работе
+\abstract{
+В работе рассмотрено использование Git и GitHub для управления версиями.
+Описаны результаты выполнения трёх заданий: создание репозитория,
+работа с командной строкой и настройка \texttt{.gitignore}.
+}
+% Подберите 3-5 ключевых слова, отличающих эту работу от всех остальных
+\keywords{
+    Git; GitHub; LaTeX; контроль версий
+}
+
+\date{\today}
+
+
+
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Введение}
+В данном отчёте представлены результаты выполнения заданий 1, 2 и 3,
+включая создание репозитория, работу с Git из командной строки и управление файлами
+с помощью \texttt{.gitignore}. Отчёт подготовлен с использованием системы
+вёрстки LaTeX.
+
+\section{Задание 1: Создание файла goals.md}
+
+\subsection{Содержимое файла goals.md}
+\begin{verbatim}
+# Мой опыт
+Я имею около года опыта программирования на Python и C++ в рамках университетских курсов. 
+Опыта командной работы с Git у меня пока немного, но я хочу это исправить в рамках данного курса.
+[Мой Github](https://github.com/PhamBaDat)
+
+# Мои цели
+1. Освоить рабочий процесс с Git и GitHub в разработке ПО.
+2. Улучшить навыки программирования и решение задач.
+3. Успешно выполнить все задания и проекты курса.
+
+# Мои задачи
+- Выполнять все выданные задания.
+- Регулярно делать commit и push кода на GitHub.
+- Изучать дополнительную литературу по Git, Markdown.
+- Участвовать в обсуждениях и задавать вопросы преподавателю.
+- Уделять не менее 1 часа в день практике программирования.
+
+![Иллюстрация](resources/avatar.png)
+\end{verbatim}
+
+\subsection{Результат}
+Файл \texttt{goals.md} был успешно создан на GitHub и содержит разделы
+«Мой опыт», «Мои цели», «Мои задачи», а также изображение в папке \texttt{resources/}.
+
+\section{Задание 2: Работа с Git из командной строки}
+
+\subsection{Содержимое файла info.md}
+\begin{verbatim}
+Pham Ba Dat
+Window
+20-09-2026 10:00
+\end{verbatim}
+
+\subsection{Содержимое файла .gitignore}
+\begin{verbatim}
+data/
+\end{verbatim}
+
+\subsection{Объяснение результата попытки коммита data/dataset.csv}
+При выполнении команды \texttt{git add data/dataset.csv} Git выдал предупреждение
+о том, что этот файл игнорируется файлом \texttt{.gitignore}:
+
+\begin{verbatim}
+The following paths are ignored by one of your .gitignore files:
+data/dataset.csv
+hint: Use -f if you really want to add them.
+\end{verbatim}
+
+Таким образом, файл \texttt{dataset.csv} не был добавлен в область подготовленных
+файлов (staging area) и не мог быть закоммичен. Это доказывает, что
+\texttt{.gitignore} работает корректно: он предотвращает отслеживание Git
+нежелательных файлов и папок.
+
+\section{Заключение}
+В ходе выполнения заданий я освоил работу с Git и GitHub как через веб-интерфейс,
+так и через командную строку, понял принцип работы \texttt{.gitignore}
+и научился оформлять отчёты с помощью LaTeX.
+
+\end{document}
